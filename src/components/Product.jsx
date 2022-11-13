@@ -1,7 +1,9 @@
 import React from "react";
+import { useParams } from "react-router-dom";
 
-const Product = () => {
-  return <div>product details</div>;
-};
+function Product() {
+  const data = useParams();
+  return <div className="text-5xl">details of the {data.product_id}</div>;
+}
 
 export default Product;
