@@ -15,7 +15,7 @@ function Header() {
         <NavLink to="/products">Products</NavLink>
         <NavLink to="/about">About</NavLink>
         <NavLink to="/contact">Contact us</NavLink>
-        <NavLink to="/login">Logout</NavLink>
+        <NavLink to="/login">Login</NavLink>
       </div>
     </div>
   );
