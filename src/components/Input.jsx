@@ -1,11 +1,7 @@
 import { useField } from "formik";
 import React from "react";
 
-function Input({ name, type, id, ...rest }) {
-  const [field, meta] = useField(name);
-
-  const { touched, error } = meta;
-
+function Input({ name, type, id, error, touched, ...rest }) {
   return (
     <div>
       <label htmlFor={id} className="sr-only ">
@@ -13,7 +9,6 @@ function Input({ name, type, id, ...rest }) {
       </label>
 
       <input
-        {...field}
         name={name}
         type={type || "text"}
         {...rest}

@@ -6,7 +6,7 @@ import Sidebar from "./Sidebar";
 function MainLayout() {
   return (
     <div>
-      <Header />
+      <Header onClick={onclick} />
       <div className="flex">
         <Sidebar />
         <Outlet />

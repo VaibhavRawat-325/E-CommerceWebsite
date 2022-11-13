@@ -3,13 +3,16 @@ import { NavLink } from "react-router-dom";
 import { GiHamburgerMenu } from "react-icons/gi";
 
 function Header() {
-  //   const [menuIcon, setMenuIcon] = React.useState(false);
+  const [menuIcon, setMenuIcon] = React.useState(false);
 
   return (
     <div className="bg-red-500 flex lg:justify-end sm: justify-between p-2 text-white">
-      <span className="lg:hidden sm:block pt-1">
+      <button
+        className="lg:hidden sm:block pt-1"
+        onClick={() => setMenuIcon(true)}
+      >
         <GiHamburgerMenu />
-      </span>
+      </button>
       <div className="flex lg:gap-10 sm:gap-5">
         <NavLink to="/home">Home</NavLink>
         <NavLink to="/products">Products</NavLink>

@@ -1,7 +1,44 @@
 import React from "react";
+import Input from "./Input";
 
 const Contact = () => {
-  return <div>Contact us</div>;
+  return (
+    <div className="flex flex-col gap-5 bg-blue-300 ">
+      <iframe
+        className="w-screen"
+        src="https://www.google.com/maps/embed?pb=!1m21!1m12!1m3!1d55326.00296924563!2d78.05584556999032!3d29.925495272838912!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m6!3e6!4m3!3m2!1d29.9243427!2d78.08511659999999!4m0!5e0!3m2!1sen!2sin!4v1668321024094!5m2!1sen!2sin"
+        width="100%"
+        height="450"
+        style={{ border: 0 }}
+        allowFullScreen=""
+        loading="lazy"
+        referrerPolicy="no-referrer-when-downgrade"
+      ></iframe>
+
+      <div>
+        <form>
+          <Input
+            id="username"
+            name="username"
+            type="username"
+            autoComplete="username"
+            placeholder="username address"
+            required
+          />
+
+          <Input
+            id="email"
+            name="email"
+            type="email"
+            autoComplete="email"
+            placeholder="email address"
+            required
+          />
+          <Input />
+        </form>
+      </div>
+    </div>
+  );
 };
 
 export default Contact;
