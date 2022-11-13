@@ -3,14 +3,16 @@ import { Outlet } from "react-router-dom";
 import Header from "./Header";
 import Sidebar from "./Sidebar";
 
-const MainLayout = () => {
+function MainLayout() {
   return (
     <div>
       <Header />
-      <Sidebar />
-      <Outlet />
+      <div className="flex">
+        <Sidebar />
+        <Outlet />
+      </div>
     </div>
   );
-};
+}
 
 export default MainLayout;
