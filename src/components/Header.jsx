@@ -7,10 +7,7 @@ function Header() {
 
   return (
     <div className="bg-red-500 flex lg:justify-end sm: justify-between p-2 text-white">
-      <button
-        className="lg:hidden sm:block pt-1"
-        onClick={() => setMenuIcon(true)}
-      >
+      <button className="lg:hidden pt-1" onClick={() => setMenuIcon(true)}>
         <GiHamburgerMenu />
       </button>
       <div className="flex lg:gap-10 sm:gap-5">
