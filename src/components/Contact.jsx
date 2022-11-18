@@ -37,8 +37,10 @@ const Contact = () => {
           />
           <Input placeholder="please type your message" />
 
-          <Button>Submit</Button>
-          <Button theme="secondary">Cancel</Button>
+          <div className="flex gap-5">
+            <Button>Submit</Button>
+            <Button theme="secondary">Cancel</Button>
+          </div>
         </form>
       </div>
     </div>
