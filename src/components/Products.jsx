@@ -1,20 +1,21 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { getMockProducts } from "./Api";
 import Input from "./Input";
+import NoMatching from "./NoMatching";
 import ProductsList from "./ProductsList";
 
 function Products() {
-  const store = [
-    { title: "Macbook", category: "laptop", price: 10 },
-    { title: "iPhone 12", category: "mobile", price: 15 },
-    { title: "Bhindi", category: "vegetable", price: 12 },
-    { title: "hp Victus", category: "gaming laptop", price: 5 },
-    { title: "Samsung s20+", category: "mobile", price: 9 },
-  ];
-
   const [query, setQuery] = React.useState("");
   const [sort, setSort] = React.useState("default");
 
-  const data = store.filter((item) => {
+  const [productsList, setProductsList] = React.useState([]);
+
+  useEffect(() => {
+    const store = getMockProducts();
+    setProductsList(store);
+  });
+
+  const data = productsList.filter((item) => {
     const lowerCaseTitle = item.title.toLocaleLowerCase();
     const lowerCaseQuery = query.toLocaleLowerCase();
 
@@ -26,7 +27,6 @@ function Products() {
   };
 
   const handleSortChange = (event) => {
-    console.log("sorting by", event.target.value);
     setSort(event.target.value);
   };
 
@@ -41,7 +41,7 @@ function Products() {
   }
 
   return (
-    <div className="bg-gray-400 p-5 h-screen w-screen items-center flex flex-col">
+    <div className="bg-gray-400 p-5 w-screen items-center flex flex-col">
       <div className="flex gap-5">
         <Input
           value={query}
@@ -58,7 +58,12 @@ function Products() {
           <option value="price">sort by price</option>
         </select>
       </div>
-      <ProductsList products={data} />
+
+      {data.length > 0 && <ProductsList products={data} />}
+      {data.length == 0 && <NoMatching>No matching found</NoMatching>}
+      {data.length <= 1 && (
+        <NoMatching>Try some other words to see more results</NoMatching>
+      )}
     </div>
   );
 }
