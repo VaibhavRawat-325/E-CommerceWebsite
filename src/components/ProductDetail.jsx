@@ -1,25 +1,40 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { getMockProducts } from "./Api";
+import { getProduct } from "./Api";
+import { Link } from "react-router-dom";
 
 function ProductDetail() {
-  const { sku } = useParams();
+  const id = +useParams().id;
 
-  const store = getMockProducts();
+  const [product, setProduct] = React.useState();
 
-  let Product;
-
-  for (let i = 0; i < store.length; i++) {
-    const pItem = store[i];
-    if (sku == pItem.sku) {
-      Product = pItem;
-    }
-  }
+  useEffect(() => {
+    const promise = getProduct(id);
+    promise.then((response) => {
+      setProduct(response);
+    });
+  }, [id]);
 
   return (
-    <div className="bg-blue-400 p-2">
-      <div className="">details of the {Product.title}</div>
-    </div>
+    <>
+      {product && (
+        <div className="bg-blue-400 p-2 flex flex-col gap-3">
+          <div className="flex gap-2">
+            <img src={product.thumbnail}></img>
+            <div>
+              <div>categories: {product.category}</div>
+              <div>details of the {product.title}</div>
+              <p>description: {product.description}</p>
+              <div>${product.price}</div>
+            </div>
+          </div>
+          <div className="gap-2 flex">
+            <Link to={"/products/" + (id - 1) + "/details"}>previous</Link>
+            <Link to={"/products/" + (id + 1) + "/details"}>next</Link>
+          </div>
+        </div>
+      )}
+    </>
   );
 }
 

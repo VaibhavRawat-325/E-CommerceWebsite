@@ -13,6 +13,7 @@ function Header() {
       <div className="flex lg:gap-10 sm:gap-5">
         <NavLink to="/home">Home</NavLink>
         <NavLink to="/products">Products</NavLink>
+        <NavLink to="/cart">Cart</NavLink>
         <NavLink to="/about">About</NavLink>
         <NavLink to="/contact">Contact us</NavLink>
         <NavLink to="/login">Login</NavLink>

@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
-import { getMockProducts } from "./Api";
 import Input from "./Input";
 import NoMatching from "./NoMatching";
 import ProductsList from "./ProductsList";
+import { getProductList } from "./Api";
 
 function Products() {
   const [query, setQuery] = React.useState("");
@@ -11,9 +11,11 @@ function Products() {
   const [productsList, setProductsList] = React.useState([]);
 
   useEffect(() => {
-    const store = getMockProducts();
-    setProductsList(store);
-  });
+    const promise = getProductList();
+    promise.then((response) => {
+      setProductsList(response);
+    });
+  }, []);
 
   const data = productsList.filter((item) => {
     const lowerCaseTitle = item.title.toLocaleLowerCase();
