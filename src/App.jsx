@@ -39,21 +39,23 @@ function App() {
 
   return (
     <AlertContext.Provider value={alertData}>
-      <Routes>
-        <Route path="/" element={<Navigate to="/home" />} />
+      <div className="bg-gray-200">
+        <Routes>
+          <Route path="/" element={<Navigate to="/home" />} />
 
-        <Route path="/" element={<MainLayout />}>
-          <Route path="home" element={<Home />} />
-          <Route path="about" element={<About />} />
-          <Route path="products" element={<Products />} />
-          <Route path="products/:id/details" element={<ProductDetail />} />
-          <Route path="contact" element={<Contact />} />
-          <Route path="cart" element={<Cart />} />
-        </Route>
+          <Route path="/" element={<MainLayout />}>
+            <Route path="home" element={<Home />} />
+            <Route path="about" element={<About />} />
+            <Route path="products" element={<Products />} />
+            <Route path="products/:id/details" element={<ProductDetail />} />
+            <Route path="contact" element={<Contact />} />
+            <Route path="cart" element={<Cart />} />
+          </Route>
 
-        <Route path="*" element={<NotFound />} />
-        <Route path="/login" element={<Login />} />
-      </Routes>
+          <Route path="*" element={<NotFound />} />
+          <Route path="/login" element={<Login />} />
+        </Routes>
+      </div>
     </AlertContext.Provider>
   );
 }

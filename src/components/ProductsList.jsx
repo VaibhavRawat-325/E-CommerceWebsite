@@ -4,7 +4,7 @@ import ProductRow from "./ProductRow";
 
 function ProductsList({ products }) {
   return (
-    <div className="bg-green-500 flex flex-col wrap">
+    <div className=" grid grid-cols-3 gap-2">
       {products.map((item) => (
         <ProductRow key={item.id} {...item} />
       ))}

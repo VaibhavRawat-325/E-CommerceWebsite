@@ -1,22 +1,26 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import { GiHamburgerMenu } from "react-icons/gi";
+import { HiOutlineShoppingBag } from "react-icons/hi";
 
 function Header() {
-  const [menuIcon, setMenuIcon] = React.useState(false);
-
   return (
-    <div className="bg-red-500 flex lg:justify-end sm: justify-between p-2 text-white">
-      <button className="lg:hidden pt-1" onClick={() => setMenuIcon(true)}>
-        <GiHamburgerMenu />
-      </button>
-      <div className="flex lg:gap-10 sm:gap-5">
-        <NavLink to="/home">Home</NavLink>
-        <NavLink to="/products">Products</NavLink>
-        <NavLink to="/cart">Cart</NavLink>
-        <NavLink to="/about">About</NavLink>
-        <NavLink to="/contact">Contact us</NavLink>
-        <NavLink to="/login">Login</NavLink>
+    <div className="py-4 bg-white">
+      <div className="max-w-6xl mx-auto flex justify-between items-center">
+        <img
+          className="h-10"
+          src="https://trycasuals.com/wp-content/uploads/2019/06/print-1-1.svg"
+        />
+        <div className="flex gap-10 items-center">
+          <NavLink to="/home">Home</NavLink>
+          <NavLink to="/products">Products</NavLink>
+          <NavLink to="/cart">Cart</NavLink>
+          <NavLink to="/about">About</NavLink>
+          <NavLink to="/contact">Contact us</NavLink>
+          <NavLink to="/login">Login</NavLink>
+          <span className="text-3xl text-orange-500">
+            <HiOutlineShoppingBag />
+          </span>
+        </div>
       </div>
     </div>
   );

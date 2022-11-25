@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Button({ theme, icon, children, props, ...rest }) {
   let themeClass =
-    "text-white bg-yellow-500 border-transparent hover:bg-yellow-600";
+    "text-white bg-orange-500 border-transparent hover:bg-orange-600";
 
   let radiusClass = "rounded-md";
 

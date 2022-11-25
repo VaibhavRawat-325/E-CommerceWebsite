@@ -3,17 +3,16 @@ import { Link } from "react-router-dom";
 
 const ProductRow = ({ title, price, category, id, thumbnail }) => {
   return (
-    <div className="p-10 bg-yellow-500 w-96 m-2 flex gap-2">
-      <div>
-        <img src={thumbnail}></img>
+    <div className="max-w-xs flex flex-col mb-9 aspect-square bg-orange-300 p-2">
+      <div className="w-full aspect-square overflow-hidden">
+        <img className="h-full w-full object-cover" src={thumbnail}></img>
       </div>
-      <div>
-        <div>{title}</div>
-        <div>{category}</div>
-        <div>${price}</div>
-        <Link className="text-white" to={id + "/details"}>
-          view details
+      <div className="px-2">
+        <div className="text-gray-400">{category}</div>
+        <Link to={id + "/details"} className="font-medium">
+          {title}
         </Link>
+        <div>${price}</div>
       </div>
     </div>
   );

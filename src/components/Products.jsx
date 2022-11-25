@@ -43,29 +43,32 @@ function Products() {
   }
 
   return (
-    <div className="bg-gray-400 p-5 w-screen items-center flex flex-col">
-      <div className="flex gap-5">
-        <Input
-          value={query}
-          onChange={handleQueryChange}
-          placeholder="search"
-        />
-        <select
-          className="h-10 p-2 items-baseline border border-gray-500 rounded-md"
-          value={sort}
-          onChange={handleSortChange}
-        >
-          <option value="default">default sort</option>
-          <option value="name">sort by name</option>
-          <option value="price">sort by price</option>
-        </select>
+    <div className="bg-gray-200 max-w-6xl mx-auto mt-10">
+      <div className="px-20 py-24 bg-white flex flex-col mx-5 my-7">
+        <div className="flex gap-5 items-baseline justify-between">
+          <Input
+            value={query}
+            onChange={handleQueryChange}
+            placeholder="search"
+          />
+          <select
+            className="p-2 border border-gray-300 rounded-md"
+            value={sort}
+            onChange={handleSortChange}
+          >
+            <option value="default">default sort</option>
+            <option value="name">sort by name</option>
+            <option value="price">sort by price</option>
+          </select>
+        </div>
+        <div className="">
+          {data.length > 0 && <ProductsList products={data} />}
+        </div>
+        {data.length == 0 && <NoMatching>No matching found</NoMatching>}
+        {data.length <= 1 && (
+          <NoMatching>Try some other words to see more results</NoMatching>
+        )}
       </div>
-
-      {data.length > 0 && <ProductsList products={data} />}
-      {data.length == 0 && <NoMatching>No matching found</NoMatching>}
-      {data.length <= 1 && (
-        <NoMatching>Try some other words to see more results</NoMatching>
-      )}
     </div>
   );
 }
