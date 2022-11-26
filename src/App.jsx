@@ -39,7 +39,7 @@ function App() {
 
   return (
     <AlertContext.Provider value={alertData}>
-      <div className="bg-gray-200">
+      <div className="bg-gray-200 pb-7">
         <Routes>
           <Route path="/" element={<Navigate to="/home" />} />
 

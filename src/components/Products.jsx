@@ -3,6 +3,7 @@ import Input from "./Input";
 import NoMatching from "./NoMatching";
 import ProductsList from "./ProductsList";
 import { getProductList } from "./Api";
+import Loading from "./Loading";
 
 function Products() {
   const [query, setQuery] = React.useState("");
@@ -44,7 +45,7 @@ function Products() {
 
   return (
     <div className="bg-gray-200 max-w-6xl mx-auto mt-10">
-      <div className="px-20 py-24 bg-white flex flex-col mx-5 my-7">
+      <div className="px-20 py-24 bg-white mx-5 my-7">
         <div className="flex gap-5 items-baseline justify-between">
           <Input
             value={query}
@@ -62,7 +63,7 @@ function Products() {
           </select>
         </div>
         <div className="">
-          {data.length > 0 && <ProductsList products={data} />}
+          {data.length > 0 ? <ProductsList products={data} /> : <Loading />}
         </div>
         {data.length == 0 && <NoMatching>No matching found</NoMatching>}
         {data.length <= 1 && (
