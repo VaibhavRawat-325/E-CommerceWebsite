@@ -7,7 +7,7 @@ import Contact from "./components/Contact";
 import Cart from "./components/Cart";
 import NotFound from "./components/NotFound";
 import MainLayout from "./components/MainLayout";
-import AlertContext from "./components/AlertContext";
+import { AlertContext } from "./components/Context";
 import Login from "./components/Login";
 import { uniqueId } from "lodash";
 import ProductDetail from "./components/ProductDetail";

@@ -4,7 +4,7 @@ import Button from "./Button";
 import Alerts from "./Alerts";
 import * as Yup from "yup";
 import { Formik, Form } from "formik";
-import AlertContext from "./AlertContext";
+import { AlertContext } from "./Context";
 import { useContext } from "react";
 
 function Login() {

@@ -8,7 +8,7 @@ const ProductRow = ({ title, price, category, id, thumbnail }) => {
         <img className="h-full w-full object-cover" src={thumbnail}></img>
       </div>
       <div className="px-2">
-        <div className="text-gray-400">{category}</div>
+        <div className="text-gray-600 font-medium">{category}</div>
         <Link to={id + "/details"} className="font-medium">
           {title}
         </Link>

@@ -1,14 +1,18 @@
-import React, { useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { getProduct } from "./Api";
 import { Link } from "react-router-dom";
 import Button from "./Button";
 import Loading from "./Loading";
+import { CountContext } from "./Context";
 
 function ProductDetail() {
   const id = +useParams().id;
 
+  const { handleAddToCart } = useContext(CountContext);
+
   const [product, setProduct] = React.useState();
+  const [count, setCount] = React.useState(1);
 
   useEffect(() => {
     const promise = getProduct(id);
@@ -16,6 +20,14 @@ function ProductDetail() {
       setProduct(response);
     });
   }, [id]);
+
+  const handleChange = (event) => {
+    setCount(+event.target.value);
+  };
+
+  const handleButtonClick = () => {
+    handleAddToCart(id, count);
+  };
 
   return (
     <div className="bg-gray-200 flex max-w-6xl mx-auto mt-10">
@@ -48,12 +60,17 @@ function ProductDetail() {
                   </p>
                 </div>
                 <div className="flex gap-5 pt-5 items-center">
-                  <input className="border border-gray-800 w-12 h-8 p-2 rounded-sm" />
-                  <Button>Add to Cart</Button>
+                  <input
+                    type="number"
+                    value={count}
+                    onChange={handleChange}
+                    className="border border-gray-800 w-12 h-8 p-1 rounded-sm"
+                  />
+                  <Button onClick={handleButtonClick}>Add to Cart</Button>
                 </div>
               </div>
             </div>
-            <div className=" pt-10 underline text-gray-700">
+            <div className="pt-10 underline text-gray-700">
               {id > 1 && (
                 <div>
                   <Link to={"/products/" + (id - 1) + "/details"}>

@@ -6,10 +6,10 @@ import { getProductList } from "./Api";
 import Loading from "./Loading";
 
 function Products() {
+  const [productsList, setProductsList] = React.useState([]);
+
   const [query, setQuery] = React.useState("");
   const [sort, setSort] = React.useState("default");
-
-  const [productsList, setProductsList] = React.useState([]);
 
   useEffect(() => {
     const promise = getProductList();
@@ -62,7 +62,7 @@ function Products() {
             <option value="price">sort by price</option>
           </select>
         </div>
-        <div className="">
+        <div>
           {data.length > 0 ? <ProductsList products={data} /> : <Loading />}
         </div>
         {data.length == 0 && <NoMatching>No matching found</NoMatching>}
