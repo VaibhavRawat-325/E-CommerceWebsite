@@ -17,9 +17,11 @@ function Header({ productCount }) {
           <NavLink to="/about">About</NavLink>
           <NavLink to="/contact">Contact us</NavLink>
           <NavLink to="/login">Login</NavLink>
-          <div className="flex">
-            <HiOutlineShoppingBag className="text-3xl text-orange-500" />
-            <span className="text-sm text-orange-500">{productCount}</span>
+          <div className="flex flex-col">
+            <HiOutlineShoppingBag className="text-4xl text-orange-500" />
+            <span className="text-sm text-orange-500 ml-3.5 -mt-6">
+              {productCount}
+            </span>
           </div>
         </div>
       </div>

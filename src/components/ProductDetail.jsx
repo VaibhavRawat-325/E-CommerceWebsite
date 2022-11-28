@@ -30,7 +30,7 @@ function ProductDetail() {
   };
 
   return (
-    <div className="bg-gray-200 flex max-w-6xl mx-auto mt-10">
+    <div className="bg-gray-200 flex max-w-6xl mx-auto my-10">
       <div className="px-20 py-24 bg-white mx-5 my-7 grow">
         {product ? (
           <div>
@@ -70,7 +70,7 @@ function ProductDetail() {
                 </div>
               </div>
             </div>
-            <div className="pt-10 underline text-gray-700">
+            <div className="pt-10 underline text-gray-700 flex justify-between">
               {id > 1 && (
                 <div>
                   <Link to={"/products/" + (id - 1) + "/details"}>
