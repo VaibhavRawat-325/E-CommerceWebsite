@@ -4,7 +4,7 @@ import { CountContext } from "./Context";
 import Header from "./Header";
 
 function MainLayout() {
-  const cachedData = JSON.parse(localStorage.getItem("new-cart") || {});
+  const cachedData = JSON.parse(localStorage.getItem("new-cart") || "{}");
   const [cartItems, setCartItems] = React.useState(cachedData);
 
   console.log("cart", cartItems);
