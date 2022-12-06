@@ -10,10 +10,6 @@ const cachedData = (data, key) => {
   localStorage.setItem(JSON.stringify(data), key);
 };
 
-const getCachedData = (data, key) => {
-  return JSON.parse(localStorage.getItem(data), key);
-};
-
 export const getProductList = async () => {
   try {
     const response = await axios.get(DUMMY_PRODUCTS_BASE_URL);

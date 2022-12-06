@@ -4,13 +4,16 @@ import { CountContext } from "./Context";
 import Header from "./Header";
 
 function MainLayout() {
-  const [cartItems, setCartItems] = React.useState({});
+  const cachedData = JSON.parse(localStorage.getItem("new-cart"));
+  const [cartItems, setCartItems] = React.useState(cachedData);
 
   console.log("cart", cartItems);
 
   const handleAddToCart = (productId, count) => {
     const oldCount = cartItems[productId] || 0;
-    setCartItems({ ...cartItems, [productId]: oldCount + count });
+    const newCart = { ...cartItems, [productId]: oldCount + count };
+    setCartItems(newCart);
+    localStorage.setItem("new-cart", JSON.stringify(newCart));
   };
 
   const totalCount = Object.keys(cartItems).reduce((previous, current) => {
