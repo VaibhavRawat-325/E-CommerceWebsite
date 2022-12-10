@@ -35,7 +35,7 @@ function ProductDetail() {
         {product ? (
           <div>
             <div className="flex gap-10">
-              <div className="max-w-xl aspect-square">
+              <div className="max-w-xl h-64 w-64">
                 <img
                   className="h-full w-full object-cover"
                   src={product.thumbnail}
