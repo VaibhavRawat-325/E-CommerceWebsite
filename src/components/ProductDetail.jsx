@@ -4,12 +4,12 @@ import { getProduct } from "./Api";
 import { Link } from "react-router-dom";
 import Button from "./Button";
 import Loading from "./Loading";
-import { CountContext } from "./Context";
+import { CartContext } from "./Context";
 
 function ProductDetail() {
   const id = +useParams().id;
 
-  const { handleAddToCart } = useContext(CountContext);
+  const { handleAddToCart } = useContext(CartContext);
 
   const [product, setProduct] = React.useState();
   const [count, setCount] = React.useState(1);
@@ -30,8 +30,8 @@ function ProductDetail() {
   };
 
   return (
-    <div className="bg-gray-200 flex max-w-6xl mx-auto my-10">
-      <div className="px-20 py-24 bg-white mx-5 my-7 grow">
+    <div className="bg-gray-200 flex max-w-6xl mx-auto">
+      <div className="px-20 py-24 bg-white mx-5 my-16 grow">
         {product ? (
           <div>
             <div className="flex gap-10">

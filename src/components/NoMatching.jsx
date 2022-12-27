@@ -2,7 +2,7 @@ import React from "react";
 
 function NoMatching(props) {
   return (
-    <div className="bg-indigo-500 p-2 border-2 text-xl mt-2 text-white flex">
+    <div className="bg-indigo-500 p-2 border-2 text-xl mt-2 text-white flex justify-center">
       {props.children}
     </div>
   );
