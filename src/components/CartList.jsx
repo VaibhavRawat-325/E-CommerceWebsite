@@ -32,12 +32,7 @@ function CartList({ listItems }) {
           </div>
           <div>
             {listItems.map((item) => (
-              <CartRow
-                key={item.id}
-                count={...productsQuantity.map((e) => e)}
-                {...item}
-                productsQuantity={productsQuantity}
-              />
+              <CartRow key={item.id} {...item} />
             ))}
           </div>
           <div className="flex justify-between px-4 py-2">

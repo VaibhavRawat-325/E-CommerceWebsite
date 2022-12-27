@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { CartContext } from "./Context";
 
-function CartRow({ title, price }, { productsQuantity }) {
+function CartRow({ title, price }) {
   const { cartItems } = useContext(CartContext);
 
   const [productCount, setProductCount] = React.useState(1);
@@ -9,7 +9,6 @@ function CartRow({ title, price }, { productsQuantity }) {
   const handleOnChange = (event) => {
     setProductCount(event.target.value);
   };
-  console.log("total price", productsQuantity);
 
   return (
     <div className="bg-fuchsia-400 flex justify-between px-5">
