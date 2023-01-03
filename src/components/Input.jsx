@@ -1,4 +1,3 @@
-import { useField } from "formik";
 import React from "react";
 
 function Input({ name, type, id, error, touched, ...rest }) {

@@ -1,13 +1,15 @@
 import React, { useContext } from "react";
 import { CartContext } from "./Context";
 
-function CartRow({ title, price }) {
+function CartRow({ title, price, id }) {
   const { cartItems } = useContext(CartContext);
 
-  const [productCount, setProductCount] = React.useState(1);
+  const [productCount, setProductCount] = React.useState(cartItems[id]);
+  const [productTotal, setProductTotal] = React.useState(cartItems[id] * price);
 
   const handleOnChange = (event) => {
     setProductCount(event.target.value);
+    setProductTotal(event.target.value * price);
   };
 
   return (
@@ -19,9 +21,10 @@ function CartRow({ title, price }) {
           className="border border-black rounded-sm p-1 w-12"
           value={productCount}
           type="number"
+          min="0"
           onChange={handleOnChange}
         />
-        <span>total</span>
+        <span>${productTotal}</span>
       </div>
     </div>
   );

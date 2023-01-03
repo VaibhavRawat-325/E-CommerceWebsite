@@ -1,23 +1,10 @@
 import React, { useContext } from "react";
 import Button from "./Button";
 import CartRow from "./CartRow";
-import { CartContext } from "./Context";
 import Input from "./Input";
 import Loading from "./Loading";
 
 function CartList({ listItems }) {
-  const { cartItems } = useContext(CartContext);
-
-  const totalPrice = (prices, quantity) => {
-    return prices.map((price, index) => price * quantity[index]);
-  };
-
-  const productsPrice = listItems.map((obj) => obj.price);
-  const productsQuantity = Object.values(cartItems);
-  const productsTotalPrice = totalPrice(productsPrice, productsQuantity);
-
-  console.log("products Total Price", productsTotalPrice);
-
   return (
     <>
       {listItems ? (

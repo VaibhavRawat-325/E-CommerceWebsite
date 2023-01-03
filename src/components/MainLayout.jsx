@@ -18,7 +18,7 @@ function MainLayout() {
     return previous + cartItems[current];
   }, 0);
 
-  const data = { handleAddToCart, cartItems, totalCount, cartItems };
+  const data = { handleAddToCart, totalCount, cartItems };
 
   return (
     <CartContext.Provider value={data}>
