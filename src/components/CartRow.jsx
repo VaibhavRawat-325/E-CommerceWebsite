@@ -2,8 +2,9 @@ import React, { useContext } from "react";
 import { GiCancel } from "react-icons/gi";
 import { CartContext } from "./Context";
 
-function CartRow({ title, price, id, handleLoadingEvent }) {
+function CartRow({ title, price, id, handleLoadingEvent, localCartData }) {
   const { cartItems, updateCart } = useContext(CartContext);
+  const { localCart, setLocalCart } = localCartData;
 
   const [productCount, setProductCount] = React.useState(cartItems[id]);
   const [productTotal, setProductTotal] = React.useState(cartItems[id] * price);
@@ -16,8 +17,11 @@ function CartRow({ title, price, id, handleLoadingEvent }) {
   };
 
   const handleOnChange = (event) => {
-    setProductCount(event.target.value);
-    setProductTotal(event.target.value * price);
+    const newValue = +event.target.value;
+    const newLocalCart = { ...localCart, [id]: newValue };
+    setProductCount(newValue);
+    setProductTotal(newValue * price);
+    setLocalCart(newLocalCart);
   };
 
   return (

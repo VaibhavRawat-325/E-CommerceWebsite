@@ -1,15 +1,28 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import Button from "./Button";
 import CartRow from "./CartRow";
+import { CartContext } from "./Context";
 import Input from "./Input";
 import Loading from "./Loading";
 
 function CartList({ listItems, loadingData }) {
+  const { cartItems, updateCart } = useContext(CartContext);
   const { loading, setLoading } = loadingData; //f
+  const [localCart, setLocalCart] = React.useState([]);
 
   const handleLoadingEvent = (x) => {
     setLoading(x);
   };
+
+  const handleChange = () => {
+    updateCart(localCart);
+  };
+
+  useEffect(() => {
+    setLocalCart(cartItems);
+  }, [cartItems]);
+
+  const localCartData = { localCart, setLocalCart };
 
   return (
     <>
@@ -30,18 +43,19 @@ function CartList({ listItems, loadingData }) {
                   key={item.id}
                   {...item}
                   handleLoadingEvent={handleLoadingEvent}
+                  localCartData={localCartData}
                 />
               ))}
             </div>
           ) : (
             <Loading />
           )}
-          <div className="flex justify-between px-4 py-2">
+          <div className="flex justify-between">
             <div className="flex">
               <Input placeholder="Coupon code" />
               <Button>Apply Coupon</Button>
             </div>
-            <Button>Update Cart</Button>
+            <Button onClick={handleChange}>Update Cart</Button>
           </div>
         </div>
       ) : (
