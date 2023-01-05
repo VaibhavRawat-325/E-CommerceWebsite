@@ -1,11 +1,19 @@
 import React, { useContext } from "react";
+import { GiCancel } from "react-icons/gi";
 import { CartContext } from "./Context";
 
-function CartRow({ title, price, id }) {
-  const { cartItems } = useContext(CartContext);
+function CartRow({ title, price, id, handleLoadingEvent }) {
+  const { cartItems, updateCart } = useContext(CartContext);
 
   const [productCount, setProductCount] = React.useState(cartItems[id]);
   const [productTotal, setProductTotal] = React.useState(cartItems[id] * price);
+
+  const handleRemove = () => {
+    const newCart = { ...cartItems };
+    delete newCart[id];
+    updateCart(newCart);
+    handleLoadingEvent(true);
+  };
 
   const handleOnChange = (event) => {
     setProductCount(event.target.value);
@@ -14,6 +22,9 @@ function CartRow({ title, price, id }) {
 
   return (
     <div className="bg-fuchsia-400 flex justify-between px-5">
+      <button onClick={handleRemove}>
+        <GiCancel />
+      </button>
       <span className="bg-green-500 px-2">{title}</span>
       <div className="bg-yellow-400 flex gap-24">
         <span>${price}</span>

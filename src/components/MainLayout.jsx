@@ -10,6 +10,10 @@ function MainLayout() {
   const handleAddToCart = (productId, count) => {
     const oldCount = cartItems[productId] || 0;
     const newCart = { ...cartItems, [productId]: oldCount + count };
+    updateCart(newCart);
+  };
+
+  const updateCart = (newCart) => {
     setCartItems(newCart);
     localStorage.setItem("new-cart", JSON.stringify(newCart));
   };
@@ -18,7 +22,7 @@ function MainLayout() {
     return previous + cartItems[current];
   }, 0);
 
-  const data = { handleAddToCart, totalCount, cartItems };
+  const data = { handleAddToCart, totalCount, cartItems, updateCart };
 
   return (
     <CartContext.Provider value={data}>

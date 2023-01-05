@@ -1,10 +1,16 @@
-import React, { useContext } from "react";
+import React from "react";
 import Button from "./Button";
 import CartRow from "./CartRow";
 import Input from "./Input";
 import Loading from "./Loading";
 
-function CartList({ listItems }) {
+function CartList({ listItems, loadingData }) {
+  const { loading, setLoading } = loadingData; //f
+
+  const handleLoadingEvent = (x) => {
+    setLoading(x);
+  };
+
   return (
     <>
       {listItems ? (
@@ -17,11 +23,19 @@ function CartList({ listItems }) {
               <span>Subtotal</span>
             </div>
           </div>
-          <div>
-            {listItems.map((item) => (
-              <CartRow key={item.id} {...item} />
-            ))}
-          </div>
+          {!loading ? (
+            <div>
+              {listItems.map((item) => (
+                <CartRow
+                  key={item.id}
+                  {...item}
+                  handleLoadingEvent={handleLoadingEvent}
+                />
+              ))}
+            </div>
+          ) : (
+            <Loading />
+          )}
           <div className="flex justify-between px-4 py-2">
             <div className="flex">
               <Input placeholder="Coupon code" />

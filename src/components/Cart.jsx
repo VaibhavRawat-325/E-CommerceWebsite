@@ -9,23 +9,31 @@ function Cart() {
   const { cartItems, totalCount } = useContext(CartContext);
 
   const [cart, setCart] = React.useState([]);
-
-  const productItems = Object.keys(cartItems).map((productId) => {
-    return getProduct(productId);
-  });
+  const [loading, setLoading] = React.useState(true);
 
   useEffect(() => {
+    const productItems = Object.keys(cartItems).map((productId) => {
+      return getProduct(productId);
+    });
+
     const promises = Promise.all(productItems);
     promises.then((responses) => {
       setCart(responses);
+      setLoading(false);
     });
-  }, []);
+  }, [cartItems]);
+
+  const loadingData = { loading, setLoading };
 
   return (
     <div className="">
       {totalCount ? (
         <div>
-          {cart.length !== 0 ? <CartList listItems={cart} /> : <Loading />}
+          {cart.length !== 0 ? (
+            <CartList loadingData={loadingData} listItems={cart} />
+          ) : (
+            <Loading />
+          )}
         </div>
       ) : (
         <NoMatching>cart is empty</NoMatching>
