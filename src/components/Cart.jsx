@@ -26,7 +26,7 @@ function Cart() {
   const loadingData = { loading, setLoading };
 
   return (
-    <div className="">
+    <div className="bg-white max-w-6xl mx-auto mt-10 pb-6 px-20 py-24">
       {totalCount ? (
         <div>
           {cart.length !== 0 ? (

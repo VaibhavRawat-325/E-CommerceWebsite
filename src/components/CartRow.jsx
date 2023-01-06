@@ -2,7 +2,14 @@ import React, { useContext } from "react";
 import { GiCancel } from "react-icons/gi";
 import { CartContext } from "./Context";
 
-function CartRow({ title, price, id, handleLoadingEvent, localCartData }) {
+function CartRow({
+  title,
+  price,
+  id,
+  thumbnail,
+  handleLoadingEvent,
+  localCartData,
+}) {
   const { cartItems, updateCart } = useContext(CartContext);
   const { localCart, setLocalCart } = localCartData;
 
@@ -25,12 +32,15 @@ function CartRow({ title, price, id, handleLoadingEvent, localCartData }) {
   };
 
   return (
-    <div className="bg-fuchsia-400 flex justify-between px-5">
-      <button onClick={handleRemove}>
+    <div className="flex justify-between px-10 py-4 border-b border-x border-gray-400 items-center">
+      <button className="text-xl" onClick={handleRemove}>
         <GiCancel />
       </button>
-      <span className="bg-green-500 px-2">{title}</span>
-      <div className="bg-yellow-400 flex gap-24">
+      <div className="h-20 w-20">
+        <img className="h-full w-full object-cover" src={thumbnail} />
+      </div>
+      <span className="px-2">{title}</span>
+      <div className="flex gap-24">
         <span>${price}</span>
         <input
           className="border border-black rounded-sm p-1 w-12"

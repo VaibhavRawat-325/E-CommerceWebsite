@@ -27,10 +27,10 @@ function CartList({ listItems, loadingData }) {
   return (
     <>
       {listItems ? (
-        <div className="bg-green-400">
-          <div className="flex justify-between px-5 py-1">
-            <span className="bg-amber-500 p-2">Product</span>
-            <div className="bg-red-400 flex gap-20 p-1">
+        <div className="mx-5 my-7">
+          <div className="bg-gray-200 flex justify-between px-5 py-1 border border-gray-400">
+            <span className="p-2">Product</span>
+            <div className="flex gap-20 p-1">
               <span>Price</span>
               <span>Quantity</span>
               <span>Subtotal</span>
