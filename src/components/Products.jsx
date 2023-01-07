@@ -7,7 +7,6 @@ import Loading from "./Loading";
 
 function Products() {
   const [productsList, setProductsList] = React.useState([]);
-
   const [query, setQuery] = React.useState("");
   const [sort, setSort] = React.useState("default");
 

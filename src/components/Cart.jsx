@@ -27,8 +27,8 @@ function Cart() {
   const loadingData = { loading, setLoading };
 
   return (
-    <div className="pb-10">
-      <div className="bg-white max-w-6xl mx-auto mt-10 px-20 py-24 pb-10">
+    <div className="pb-10 mx-5 my-7">
+      <div className="bg-white max-w-6xl mx-auto mt-10 px-20 py-24">
         {totalCount ? (
           <div>
             {cart.length !== 0 ? (

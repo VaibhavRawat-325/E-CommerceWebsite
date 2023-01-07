@@ -1,19 +1,18 @@
 import React from "react";
+import cn from "classnames";
 
 export default function Button({ theme, icon, children, props, ...rest }) {
-  let themeClass =
-    "text-white bg-orange-500 border-transparent hover:bg-orange-600";
+  const themeClass = cn(
+    "text-white bg-orange-500 border-transparent hover:bg-orange-600",
+    {
+      "text-blue-gray-900 bg-white border-gray-300 hover:bg-blue-gray-50":
+        theme === "secondary",
+    }
+  );
 
-  let radiusClass = "rounded-md";
-
-  if (theme === "secondary") {
-    themeClass =
-      "text-blue-gray-900 bg-white border-gray-300 hover:bg-blue-gray-50";
-  }
-
-  if (theme === "highlight") {
-    radiusClass = "rounded-full mt-4";
-  }
+  const radiusClass = cn("rounded-md", {
+    "rounded-full mt-4": theme === "highlight",
+  });
 
   return (
     <button

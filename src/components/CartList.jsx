@@ -23,7 +23,7 @@ function CartList({ listItems, loadingData }) {
   return (
     <>
       {listItems ? (
-        <div className="mx-5 my-7">
+        <div className="">
           <div className="bg-gray-200 flex border border-gray-300">
             <div className="ml-52 py-3 grow">
               <span>Product</span>
@@ -34,7 +34,7 @@ function CartList({ listItems, loadingData }) {
               <span className="w-20 ml-5">Subtotal</span>
             </div>
           </div>
-          <div className="border-x border-b">
+          <div className="border-x">
             {!loading ? (
               <div>
                 {listItems.map((item) => (
@@ -49,7 +49,7 @@ function CartList({ listItems, loadingData }) {
               <Loading />
             )}
           </div>
-          <div className="flex justify-between">
+          <div className="flex justify-between mt-2 py-4">
             <div className="flex">
               <Input placeholder="Coupon code" />
               <Button>Apply Coupon</Button>
