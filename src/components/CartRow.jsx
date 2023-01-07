@@ -25,6 +25,7 @@ function CartRow({ title, price, id, thumbnail, localCartData }) {
 
   return (
     <div className="flex flex-col">
+      <hr className="bg-gray-300 text-base" />
       <div className="flex justify-between px-10 py-2 items-center">
         <button className="text-xl w-10 text-gray-400" onClick={handleRemove}>
           <GiCancel />
@@ -47,7 +48,6 @@ function CartRow({ title, price, id, thumbnail, localCartData }) {
           <span className="w-20 ml-5 text-left">${productTotal}</span>
         </div>
       </div>
-      <hr className="bg-gray-200 text-base" />
     </div>
   );
 }

@@ -24,7 +24,7 @@ function CartList({ listItems, loadingData }) {
     <>
       {listItems ? (
         <div className="">
-          <div className="bg-gray-200 flex border border-gray-300">
+          <div className="bg-gray-200 flex border-x border-t border-gray-300">
             <div className="ml-52 py-3 grow">
               <span>Product</span>
             </div>
@@ -34,7 +34,7 @@ function CartList({ listItems, loadingData }) {
               <span className="w-20 ml-5">Subtotal</span>
             </div>
           </div>
-          <div className="border-x">
+          <div className="border-x border-b border-gray-300">
             {!loading ? (
               <div>
                 {listItems.map((item) => (
