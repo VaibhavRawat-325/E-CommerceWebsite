@@ -19,6 +19,7 @@ function ProductDetail() {
     promise.then((response) => {
       setProduct(response);
     });
+    setCount(1);
   }, [id]);
 
   const handleChange = (event) => {

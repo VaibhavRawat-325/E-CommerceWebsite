@@ -12,6 +12,7 @@ function Cart() {
   const [loading, setLoading] = React.useState(true);
 
   useEffect(() => {
+    setLoading(true);
     const productItems = Object.keys(cartItems).map((productId) => {
       return getProduct(productId);
     });
@@ -26,7 +27,7 @@ function Cart() {
   const loadingData = { loading, setLoading };
 
   return (
-    <div className="bg-white max-w-6xl mx-auto mt-10 pb-6 px-20 py-24">
+    <div className="bg-white max-w-6xl mx-auto mt-10 px-20 py-24 pb-10">
       {totalCount ? (
         <div>
           {cart.length !== 0 ? (

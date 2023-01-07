@@ -7,12 +7,8 @@ import Loading from "./Loading";
 
 function CartList({ listItems, loadingData }) {
   const { cartItems, updateCart } = useContext(CartContext);
-  const { loading, setLoading } = loadingData; //f
+  const { loading } = loadingData;
   const [localCart, setLocalCart] = React.useState([]);
-
-  const handleLoadingEvent = (x) => {
-    setLoading(x);
-  };
 
   const handleChange = () => {
     updateCart(localCart);
@@ -28,7 +24,7 @@ function CartList({ listItems, loadingData }) {
     <>
       {listItems ? (
         <div className="mx-5 my-7">
-          <div className="bg-gray-200 flex justify-between px-5 py-1 border border-gray-400">
+          <div className="bg-gray-200 flex justify-between border border-gray-400">
             <span className="p-2">Product</span>
             <div className="flex gap-20 p-1">
               <span>Price</span>
@@ -42,7 +38,6 @@ function CartList({ listItems, loadingData }) {
                 <CartRow
                   key={item.id}
                   {...item}
-                  handleLoadingEvent={handleLoadingEvent}
                   localCartData={localCartData}
                 />
               ))}

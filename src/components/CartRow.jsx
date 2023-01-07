@@ -2,14 +2,7 @@ import React, { useContext } from "react";
 import { GiCancel } from "react-icons/gi";
 import { CartContext } from "./Context";
 
-function CartRow({
-  title,
-  price,
-  id,
-  thumbnail,
-  handleLoadingEvent,
-  localCartData,
-}) {
+function CartRow({ title, price, id, thumbnail, localCartData }) {
   const { cartItems, updateCart } = useContext(CartContext);
   const { localCart, setLocalCart } = localCartData;
 
@@ -20,7 +13,6 @@ function CartRow({
     const newCart = { ...cartItems };
     delete newCart[id];
     updateCart(newCart);
-    handleLoadingEvent(true);
   };
 
   const handleOnChange = (event) => {
