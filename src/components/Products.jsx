@@ -44,7 +44,7 @@ function Products() {
   }
 
   return (
-    <div className="bg-gray-200 max-w-6xl mx-auto mt-10 pb-6">
+    <div className="bg-gray-200 max-w-6xl mx-auto mt-12 pb-8">
       <div className="px-20 py-24 bg-white mx-5 my-7">
         <div className="flex gap-5 items-baseline justify-between">
           <Input

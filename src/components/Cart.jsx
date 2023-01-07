@@ -27,18 +27,20 @@ function Cart() {
   const loadingData = { loading, setLoading };
 
   return (
-    <div className="bg-white max-w-6xl mx-auto mt-10 px-20 py-24 pb-10">
-      {totalCount ? (
-        <div>
-          {cart.length !== 0 ? (
-            <CartList loadingData={loadingData} listItems={cart} />
-          ) : (
-            <Loading />
-          )}
-        </div>
-      ) : (
-        <NoMatching>cart is empty</NoMatching>
-      )}
+    <div className="pb-10">
+      <div className="bg-white max-w-6xl mx-auto mt-10 px-20 py-24 pb-10">
+        {totalCount ? (
+          <div>
+            {cart.length !== 0 ? (
+              <CartList loadingData={loadingData} listItems={cart} />
+            ) : (
+              <Loading />
+            )}
+          </div>
+        ) : (
+          <NoMatching>cart is empty</NoMatching>
+        )}
+      </div>
     </div>
   );
 }
