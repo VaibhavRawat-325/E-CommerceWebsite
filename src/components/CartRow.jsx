@@ -2,24 +2,20 @@ import React, { useContext } from "react";
 import { GiCancel } from "react-icons/gi";
 import { CartContext } from "./Context";
 
-function CartRow({ title, price, id, thumbnail, localCartData }) {
+function CartRow({ title, price, id, thumbnail, localCartData, onRemove }) {
   const { cartItems, updateCart } = useContext(CartContext);
   const { localCart, setLocalCart } = localCartData;
 
-  const [productCount, setProductCount] = React.useState(cartItems[id]);
-  const [productTotal, setProductTotal] = React.useState(cartItems[id] * price);
+  const [quantity, setQuantity] = React.useState(cartItems[id]);
 
-  const handleRemove = () => {
-    const newCart = { ...cartItems };
-    delete newCart[id];
-    updateCart(newCart);
+  const handleOnRemove = () => {
+    onRemove(id);
   };
 
   const handleOnChange = (event) => {
-    const newValue = +event.target.value;
-    const newLocalCart = { ...localCart, [id]: newValue };
-    setProductCount(newValue);
-    setProductTotal(newValue * price);
+    const newQuantity = +event.target.value;
+    const newLocalCart = { ...localCart, [id]: newQuantity };
+    setQuantity(newQuantity);
     setLocalCart(newLocalCart);
   };
 
@@ -27,7 +23,7 @@ function CartRow({ title, price, id, thumbnail, localCartData }) {
     <div className="flex flex-col">
       <hr className="bg-gray-300 text-base" />
       <div className="flex justify-between px-10 py-2 items-center">
-        <button className="text-xl w-10 text-gray-400" onClick={handleRemove}>
+        <button className="text-xl w-10 text-gray-400" onClick={handleOnRemove}>
           <GiCancel />
         </button>
         <div className="h-20 w-20 ml-5">
@@ -39,13 +35,13 @@ function CartRow({ title, price, id, thumbnail, localCartData }) {
           <div className="w-20 ml-5">
             <input
               className="border border-gray-200 rounded-sm p-1 w-12"
-              value={productCount}
+              value={quantity}
               type="number"
               min="0"
               onChange={handleOnChange}
             />
           </div>
-          <span className="w-20 ml-5 text-left">${productTotal}</span>
+          <span className="w-20 ml-5 text-left">${quantity * price}</span>
         </div>
       </div>
     </div>

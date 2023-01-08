@@ -34,7 +34,7 @@ function Login() {
           initialValues={initialValues}
           validationSchema={validationSchema}
         >
-          <Form className="flex flex-col gap-5 bg-gray-100 px-10 py-10">
+          <Form className="flex flex-col gap-5 bg-gray-100 px-10 py-10 border border-gray-300">
             <FormikInput
               id="email"
               name="email"

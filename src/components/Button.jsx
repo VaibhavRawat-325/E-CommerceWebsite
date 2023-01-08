@@ -5,7 +5,7 @@ export default function Button({ theme, icon, children, props, ...rest }) {
   const themeClass = cn(
     "text-white bg-orange-500 border-transparent hover:bg-orange-600",
     {
-      "text-blue-gray-900 bg-white border-gray-300 hover:bg-blue-gray-50":
+      "text-gray-900 bg-white border-gray-300 hover:bg-gray-300":
         theme === "secondary",
     }
   );

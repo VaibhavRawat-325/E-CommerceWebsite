@@ -14,6 +14,12 @@ function CartList({ listItems, loadingData }) {
     updateCart(localCart);
   };
 
+  const handleRemove = (id) => {
+    const newCart = { ...cartItems };
+    delete newCart[id];
+    updateCart(newCart);
+  };
+
   useEffect(() => {
     setLocalCart(cartItems);
   }, [cartItems]);
@@ -42,6 +48,7 @@ function CartList({ listItems, loadingData }) {
                     key={item.id}
                     {...item}
                     localCartData={localCartData}
+                    onRemove={handleRemove}
                   />
                 ))}
               </div>
@@ -49,7 +56,7 @@ function CartList({ listItems, loadingData }) {
               <Loading />
             )}
           </div>
-          <div className="flex justify-between mt-2 py-4">
+          <div className="flex justify-between mt-2 py-4 p-5">
             <div className="flex">
               <Input placeholder="Coupon code" />
               <Button>Apply Coupon</Button>
