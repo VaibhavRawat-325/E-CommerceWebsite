@@ -4,11 +4,14 @@ import Button from "./Button";
 import Alerts from "./Alerts";
 import * as Yup from "yup";
 import { Formik, Form } from "formik";
-import { AlertContext } from "./Context";
+import { AlertContext, UserContext } from "./Context";
 import { useContext } from "react";
+import { callLoginApi } from "./Api";
+import { Navigate } from "react-router-dom";
 
 function Login() {
   const { showAlert } = useContext(AlertContext);
+  const { user, setUser } = useContext(UserContext);
 
   const initialValues = {
     email: "",
@@ -20,10 +23,14 @@ function Login() {
     password: Yup.string().required().min(8).max(10),
   });
 
-  const onSubmit = ({ email, password }) => {
-    console.log("calling API with data", email, password);
+  const onSubmit = (values) => {
     showAlert("login successfull");
+    callLoginApi(values, setUser);
   };
+
+  if (user) {
+    return <Navigate to="/" />;
+  }
 
   return (
     <div className="flex justify-center">

@@ -4,8 +4,20 @@ import Input from "./Input";
 
 function FormikInput({ name, ...rest }) {
   const [field, meta] = useField(name);
+  const { value, onBlur, onChange } = field;
+  const { error, touched } = meta;
 
-  return <Input name={name} {...field} {...meta} {...rest} />;
+  return (
+    <Input
+      name={name}
+      {...rest}
+      value={value}
+      onBlur={onBlur}
+      onChange={onChange}
+      error={error}
+      touched={touched}
+    />
+  );
 }
 
 export default FormikInput;

@@ -10,7 +10,7 @@ function Header({ productCount }) {
           className="h-10"
           src="https://trycasuals.com/wp-content/uploads/2019/06/print-1-1.svg"
         />
-        <div className="flex gap-10 items-center">
+        <div className="flex gap-10 items-center text-gray-600">
           <NavLink to="/home">Home</NavLink>
           <NavLink to="/products">Products</NavLink>
           <NavLink to="/cart">Cart</NavLink>

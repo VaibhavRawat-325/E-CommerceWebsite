@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 import About from "./components/About";
 import Home from "./components/Home";
@@ -7,19 +7,33 @@ import Contact from "./components/Contact";
 import Cart from "./components/Cart";
 import NotFound from "./components/NotFound";
 import MainLayout from "./components/MainLayout";
-import { AlertContext } from "./components/Context";
+import { AlertContext, UserContext } from "./components/Context";
 import Login from "./components/Login";
 import { uniqueId } from "lodash";
 import ProductDetail from "./components/ProductDetail";
+import { callUserVerificatonApi } from "./components/Api";
+import Loading from "./components/Loading";
 
 function App() {
   const [alerts, setAlerts] = React.useState([]);
+  const [user, setUser] = React.useState();
+  const [loading, setLoading] = React.useState(true);
+
+  const token = JSON.parse(localStorage.getItem("token"));
+
+  useEffect(() => {
+    if (token) {
+      callUserVerificatonApi(token, setUser);
+      setLoading(false);
+    } else {
+      setLoading(false);
+    }
+  }, []);
 
   const removeAlert = (alert) => {
-    console.log("remove alert", alert);
-
+    // console.log("remove alert", alert);
     setAlerts((latestOldAlerts) => {
-      console.log("latest old alert", latestOldAlerts);
+      // console.log("latest old alert", latestOldAlerts);
       return latestOldAlerts.filter((a) => a.id !== alert.id);
     });
   };
@@ -35,28 +49,34 @@ function App() {
       }, dismiss * 1000);
   };
 
-  const alertData = { alerts, showAlert, removeAlert };
+  if (loading) {
+    return (
+      <div className="bg-gray-200 h-screen flex justify-center items-center">
+        <Loading />
+      </div>
+    );
+  }
 
   return (
-    <AlertContext.Provider value={alertData}>
-      <div className="bg-gray-200 mx-auto">
-        <Routes>
-          <Route path="/" element={<Navigate to="/home" />} />
-
-          <Route path="/" element={<MainLayout />}>
-            <Route path="home" element={<Home />} />
-            <Route path="about" element={<About />} />
-            <Route path="products" element={<Products />} />
-            <Route path="products/:id/details" element={<ProductDetail />} />
-            <Route path="contact" element={<Contact />} />
-            <Route path="cart" element={<Cart />} />
-          </Route>
-
-          <Route path="*" element={<NotFound />} />
-          <Route path="/login" element={<Login />} />
-        </Routes>
-      </div>
-    </AlertContext.Provider>
+    <UserContext.Provider value={{ user, setUser }}>
+      <AlertContext.Provider value={{ alerts, showAlert, removeAlert }}>
+        <div className="bg-gray-200 mx-auto">
+          <Routes>
+            <Route path="/" element={<Navigate to="/home" />} />\
+            <Route path="/" element={<MainLayout />}>
+              <Route path="home" element={<Home />} />
+              <Route path="about" element={<About />} />
+              <Route path="products" element={<Products />} />
+              <Route path="products/:id/details" element={<ProductDetail />} />
+              <Route path="contact" element={<Contact />} />
+              <Route path="cart" element={<Cart />} />
+            </Route>
+            <Route path="*" element={<NotFound />} />
+            <Route path="/login" element={<Login />} />
+          </Routes>
+        </div>
+      </AlertContext.Provider>
+    </UserContext.Provider>
   );
 }
 

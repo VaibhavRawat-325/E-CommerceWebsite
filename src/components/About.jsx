@@ -87,7 +87,6 @@ function About() {
           <h1 className="text-5xl font-medium text-white">
             Get best offers on customized design!
           </h1>
-
           <button className="text-lg text-gray-100 border border-white px-4 py-2 rounded-md hover:bg-orange-600">
             GET STARTED {">"}
           </button>
