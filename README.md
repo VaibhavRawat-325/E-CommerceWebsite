@@ -1,4 +1,5 @@
 # E-CommerceWebsite
 
-A simple react-javascript project of e-commerce website
+A simple react-javascript project 
+Made with ❤️ at CodeYogi.
 
