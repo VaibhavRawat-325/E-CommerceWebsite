@@ -1,40 +1,31 @@
 import React from "react";
-import FormikInput from "./FormikInput";
-import Button from "./Button";
-import Alerts from "./Alerts";
 import * as Yup from "yup";
 import { Formik, Form } from "formik";
-import { AlertContext, UserContext } from "./Context";
-import { useContext } from "react";
-import { callLoginApi } from "./Api";
-import { Navigate } from "react-router-dom";
+import FormikInput from "./FormikInput";
+import Button from "./Button";
+import { callSigninApi } from "./Api";
 
-function LogIn() {
-  const { showAlert } = useContext(AlertContext);
-  const { user, setUser } = useContext(UserContext);
-
+function SignUp() {
   const initialValues = {
+    fullName: "",
     email: "",
     password: "",
   };
 
   const validationSchema = Yup.object().shape({
+    fullName: Yup.string().required(),
     email: Yup.string().required().email(),
     password: Yup.string().required().min(8).max(10),
   });
 
   const onSubmit = (values) => {
-    showAlert("login successfull");
-    callLoginApi(values, setUser);
+    console.log("name", values.fullName);
+    console.log("email", values.email);
+    console.log("password", values.password);
+    callSigninApi(values);
   };
-
-  if (user) {
-    return <Navigate to="/" />;
-  }
-
   return (
     <div className="flex justify-center">
-      <Alerts />
       <div className="h-screen flex justify-center items-center">
         <Formik
           onSubmit={onSubmit}
@@ -42,6 +33,15 @@ function LogIn() {
           validationSchema={validationSchema}
         >
           <Form className="flex flex-col gap-5 bg-gray-100 px-10 py-10 border border-gray-300">
+            <FormikInput
+              id="fullName"
+              name="fullName"
+              type="text"
+              autoComplete="fullName"
+              placeholder="full name"
+              required
+            ></FormikInput>
+
             <FormikInput
               id="email"
               name="email"
@@ -60,7 +60,7 @@ function LogIn() {
               required
             ></FormikInput>
 
-            <Button type="submit">Login</Button>
+            <Button type="submit">Sign In</Button>
             <Button type="button" theme="secondary">
               Cancel
             </Button>
@@ -71,4 +71,4 @@ function LogIn() {
   );
 }
 
-export default LogIn;
+export default SignUp;

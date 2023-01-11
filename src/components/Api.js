@@ -65,3 +65,20 @@ export const callLoginApi = (values, setUser) => {
     handleError(e);
   }
 };
+
+export const callSigninApi = (values) => {
+  try {
+    axios
+      .post(BACKEND_API_BASE_URL + "signup", {
+        fullName: values.fullName,
+        email: values.email,
+        password: values.password,
+      })
+      .then((response) => {
+        const { user, token } = response.data;
+        console.log("user", user);
+      });
+  } catch (e) {
+    handleError(e);
+  }
+};

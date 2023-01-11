@@ -8,11 +8,12 @@ import Cart from "./components/Cart";
 import NotFound from "./components/NotFound";
 import MainLayout from "./components/MainLayout";
 import { AlertContext, UserContext } from "./components/Context";
-import Login from "./components/Login";
+import LogIn from "./components/LogIn";
 import { uniqueId } from "lodash";
 import ProductDetail from "./components/ProductDetail";
 import { callUserVerificatonApi } from "./components/Api";
 import Loading from "./components/Loading";
+import SignUp from "./components/SignUp";
 
 function App() {
   const [alerts, setAlerts] = React.useState([]);
@@ -72,7 +73,8 @@ function App() {
               <Route path="cart" element={<Cart />} />
             </Route>
             <Route path="*" element={<NotFound />} />
-            <Route path="/login" element={<Login />} />
+            <Route path="/login" element={<LogIn />} />
+            <Route path="/signup" element={<SignUp />} />
           </Routes>
         </div>
       </AlertContext.Provider>
