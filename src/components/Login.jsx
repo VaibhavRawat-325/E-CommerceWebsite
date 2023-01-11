@@ -7,11 +7,10 @@ import { Formik, Form } from "formik";
 import { AlertContext, UserContext } from "./Context";
 import { useContext } from "react";
 import { callLoginApi } from "./Api";
-import { Navigate } from "react-router-dom";
 
 function LogIn() {
   const { showAlert } = useContext(AlertContext);
-  const { user, setUser } = useContext(UserContext);
+  const { setUser } = useContext(UserContext);
 
   const initialValues = {
     email: "",
@@ -24,13 +23,9 @@ function LogIn() {
   });
 
   const onSubmit = (values) => {
-    showAlert("login successfull");
+    showAlert("login successfull", "success");
     callLoginApi(values, setUser);
   };
-
-  if (user) {
-    return <Navigate to="/" />;
-  }
 
   return (
     <div className="flex justify-center">

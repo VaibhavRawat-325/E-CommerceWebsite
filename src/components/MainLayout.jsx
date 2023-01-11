@@ -22,10 +22,8 @@ function MainLayout() {
     return previous + cartItems[current];
   }, 0);
 
-  const data = { handleAddToCart, totalCount, cartItems, updateCart };
-
   return (
-    <CartContext.Provider value={data}>
+    <CartContext.Provider value={{ handleAddToCart, cartItems, updateCart }}>
       <div>
         <Header productCount={totalCount} />
         <div>

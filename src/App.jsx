@@ -14,6 +14,8 @@ import ProductDetail from "./components/ProductDetail";
 import { callUserVerificatonApi } from "./components/Api";
 import Loading from "./components/Loading";
 import SignUp from "./components/SignUp";
+import UserRoute from "./components/UserRoute";
+import AuthRoute from "./components/AuthRoute";
 
 function App() {
   const [alerts, setAlerts] = React.useState([]);
@@ -64,7 +66,14 @@ function App() {
         <div className="bg-gray-200 mx-auto">
           <Routes>
             <Route path="/" element={<Navigate to="/home" />} />\
-            <Route path="/" element={<MainLayout />}>
+            <Route
+              path="/"
+              element={
+                <UserRoute>
+                  <MainLayout />
+                </UserRoute>
+              }
+            >
               <Route path="home" element={<Home />} />
               <Route path="about" element={<About />} />
               <Route path="products" element={<Products />} />
@@ -72,9 +81,23 @@ function App() {
               <Route path="contact" element={<Contact />} />
               <Route path="cart" element={<Cart />} />
             </Route>
+            <Route
+              path="/login"
+              element={
+                <AuthRoute>
+                  <LogIn />
+                </AuthRoute>
+              }
+            />
+            <Route
+              path="/signup"
+              element={
+                <AuthRoute>
+                  <SignUp />
+                </AuthRoute>
+              }
+            />
             <Route path="*" element={<NotFound />} />
-            <Route path="/login" element={<LogIn />} />
-            <Route path="/signup" element={<SignUp />} />
           </Routes>
         </div>
       </AlertContext.Provider>

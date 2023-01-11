@@ -5,7 +5,7 @@ export default function Button({ theme, icon, children, props, ...rest }) {
   const themeClass = cn(
     "text-white bg-orange-500 border-transparent hover:bg-orange-600",
     {
-      "text-gray-900 bg-white border-gray-300 hover:bg-gray-300":
+      "text-gray-900 bg-gray-50 border-gray-300 hover:bg-gray-300":
         theme === "secondary",
     }
   );
@@ -18,7 +18,7 @@ export default function Button({ theme, icon, children, props, ...rest }) {
     <button
       {...rest}
       className={
-        "inline-flex justify-center items-center px-4 py-2 text-sm font-medium  border shadow-sm  focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-500 " +
+        "inline-flex justify-center items-center px-4 py-2 text-sm font-medium  border shadow-sm " +
         themeClass +
         " " +
         radiusClass
