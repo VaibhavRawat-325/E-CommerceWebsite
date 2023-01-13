@@ -26,10 +26,14 @@ function App() {
 
   useEffect(() => {
     if (token) {
-      callUserVerificatonApi(token, setUser);
+      callUserVerificatonApi(token, setUser, showAlert);
       setLoading(false);
     } else {
       setLoading(false);
+      return showAlert(
+        "Access denied bhai token leke aao 😡, you have to login first 😤",
+        "fail"
+      );
     }
   }, []);
 

@@ -23,8 +23,7 @@ function LogIn() {
   });
 
   const onSubmit = (values) => {
-    showAlert("login successfull", "success");
-    callLoginApi(values, setUser);
+    callLoginApi(values, setUser, showAlert);
   };
 
   return (

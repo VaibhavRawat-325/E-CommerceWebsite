@@ -34,24 +34,31 @@ export const getProduct = async (id) => {
   }
 };
 
-export const callUserVerificatonApi = (token, setUser) => {
+export const callUserVerificatonApi = async (token, setUser, showAlert) => {
   try {
-    axios
+    await axios
       .get(BACKEND_API_BASE_URL + "me", {
         headers: { Authorization: token },
       })
       .then((response) => {
         console.log(response.data);
+        // setTimeout(() => {
         setUser(response.data);
+        // });
       });
+    return showAlert("welcome back 😋", "success");
   } catch (e) {
     handleError(e);
+    return showAlert(
+      "Access denied 😡ye kaise token hai (-_-), you have to login first 😤",
+      "fail"
+    );
   }
 };
 
-export const callLoginApi = (values, setUser) => {
+export const callLoginApi = async (values, setUser, showAlert) => {
   try {
-    axios
+    await axios
       .post(BACKEND_API_BASE_URL + "login", {
         email: values.email,
         password: values.password,
@@ -59,10 +66,14 @@ export const callLoginApi = (values, setUser) => {
       .then((response) => {
         const { user, token } = response.data;
         cacheData("token", token);
-        setUser(user);
+        setTimeout(() => {
+          setUser(user);
+        }, 4000);
       });
+    return showAlert("login successfull 😊", "success");
   } catch (e) {
     handleError(e);
+    return showAlert("login failed 😟", "fail");
   }
 };
 

@@ -1,4 +1,5 @@
 import React from "react";
+import Alerts from "./Alerts";
 import Button from "./Button";
 import WithUser from "./WithUser";
 
@@ -9,6 +10,7 @@ function Home({ user, setUser }) {
   };
   return (
     <div>
+      <Alerts />
       <div>welcome {user.full_name}</div>
       <Button onClick={handleLogout}>Logout</Button>
     </div>
