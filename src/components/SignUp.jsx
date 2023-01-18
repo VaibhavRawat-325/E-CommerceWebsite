@@ -11,10 +11,11 @@ import Alerts from "./Alerts";
 function SignUp() {
   const { setUser } = useContext(UserContext);
   const { showAlert } = useContext(AlertContext);
+
   const initialValues = {
-    fullName: "julius caesar",
-    email: "julius@hello.com",
-    password: "123456789",
+    fullName: "",
+    email: "",
+    password: "",
   };
 
   const validationSchema = Yup.object().shape({
