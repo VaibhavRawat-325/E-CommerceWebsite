@@ -42,9 +42,7 @@ export const callUserVerificatonApi = async (token, setUser, showAlert) => {
       })
       .then((response) => {
         console.log(response.data);
-        // setTimeout(() => {
         setUser(response.data);
-        // });
       });
     return showAlert("welcome back 😋", "success");
   } catch (e) {
@@ -77,9 +75,9 @@ export const callLoginApi = async (values, setUser, showAlert) => {
   }
 };
 
-export const callSigninApi = (values) => {
+export const callSigninApi = async (values, setUser, showAlert) => {
   try {
-    axios
+    await axios
       .post(BACKEND_API_BASE_URL + "signup", {
         fullName: values.fullName,
         email: values.email,
@@ -87,9 +85,14 @@ export const callSigninApi = (values) => {
       })
       .then((response) => {
         const { user, token } = response.data;
-        console.log("user", user);
+        cacheData("token", token);
+        setTimeout(() => {
+          setUser(user);
+        }, 4000);
       });
+    return showAlert("signin complete :)", "success");
   } catch (e) {
     handleError(e);
+    return showAlert("signin failed :(", "fail");
   }
 };

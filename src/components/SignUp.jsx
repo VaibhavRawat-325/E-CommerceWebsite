@@ -1,15 +1,20 @@
-import React from "react";
+import React, { useContext } from "react";
 import * as Yup from "yup";
 import { Formik, Form } from "formik";
 import FormikInput from "./FormikInput";
 import Button from "./Button";
 import { callSigninApi } from "./Api";
+import { NavLink } from "react-router-dom";
+import { AlertContext, UserContext } from "./Context";
+import Alerts from "./Alerts";
 
 function SignUp() {
+  const { setUser } = useContext(UserContext);
+  const { showAlert } = useContext(AlertContext);
   const initialValues = {
-    fullName: "",
-    email: "",
-    password: "",
+    fullName: "julius caesar",
+    email: "julius@hello.com",
+    password: "123456789",
   };
 
   const validationSchema = Yup.object().shape({
@@ -19,20 +24,19 @@ function SignUp() {
   });
 
   const onSubmit = (values) => {
-    console.log("name", values.fullName);
-    console.log("email", values.email);
-    console.log("password", values.password);
-    callSigninApi(values);
+    callSigninApi(values, setUser, showAlert);
   };
   return (
     <div className="flex justify-center">
-      <div className="h-screen flex justify-center items-center">
+      <div className="h-screen flex flex-col justify-center items-center">
+        <Alerts />
+
         <Formik
           onSubmit={onSubmit}
           initialValues={initialValues}
           validationSchema={validationSchema}
         >
-          <Form className="flex flex-col gap-5 bg-gray-100 px-10 py-10 border border-gray-300">
+          <Form className="flex flex-col gap-5 bg-gray-100 px-10 py-10 border border-gray-300 shadow-md">
             <FormikInput
               id="fullName"
               name="fullName"
@@ -64,6 +68,13 @@ function SignUp() {
             <Button type="button" theme="secondary">
               Cancel
             </Button>
+
+            <div className="flex">
+              <h1>Have an account?</h1>
+              <NavLink to="/login" className="underline ml-1">
+                LOGIN
+              </NavLink>
+            </div>
           </Form>
         </Formik>
       </div>

@@ -2,7 +2,7 @@ import React from "react";
 
 function Input({ name, type, id, error, touched, ...rest }) {
   return (
-    <div>
+    <div className="flex flex-col items-center">
       <label htmlFor={id} className="sr-only ">
         {id}
       </label>
