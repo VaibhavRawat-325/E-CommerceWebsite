@@ -23,7 +23,9 @@ function MainLayout() {
   }, 0);
 
   return (
-    <CartContext.Provider value={{ handleAddToCart, cartItems, updateCart }}>
+    <CartContext.Provider
+      value={{ handleAddToCart, cartItems, updateCart, totalCount }}
+    >
       <div>
         <Header productCount={totalCount} />
         <div>
