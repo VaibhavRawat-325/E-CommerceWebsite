@@ -19,7 +19,7 @@ function LogIn() {
 
   useEffect(() => {
     if (token) {
-      callUserVerificatonApi(token, setUser, showAlert);
+      callUserVerificatonApi({ token, setUser, showAlert });
       setLoading(false);
     } else {
       setLoading(false);
@@ -41,7 +41,7 @@ function LogIn() {
   });
 
   const onSubmit = (values) => {
-    callLoginApi(values, setUser, showAlert);
+    callLoginApi({ values, setUser, showAlert });
   };
 
   if (loading) {

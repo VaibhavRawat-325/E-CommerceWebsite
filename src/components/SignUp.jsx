@@ -25,7 +25,7 @@ function SignUp() {
   });
 
   const onSubmit = (values) => {
-    callSigninApi(values, setUser, showAlert);
+    callSigninApi({ values, setUser, showAlert });
   };
   return (
     <div className="flex justify-center">

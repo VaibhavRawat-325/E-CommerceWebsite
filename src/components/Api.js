@@ -34,7 +34,7 @@ export const getProduct = async (id) => {
   }
 };
 
-export const callUserVerificatonApi = async (token, setUser, showAlert) => {
+export const callUserVerificatonApi = async ({ token, setUser, showAlert }) => {
   try {
     await axios
       .get(BACKEND_API_BASE_URL + "me", {
@@ -54,7 +54,7 @@ export const callUserVerificatonApi = async (token, setUser, showAlert) => {
   }
 };
 
-export const callLoginApi = async (values, setUser, showAlert) => {
+export const callLoginApi = async ({ values, setUser, showAlert }) => {
   try {
     await axios
       .post(BACKEND_API_BASE_URL + "login", {
@@ -75,7 +75,7 @@ export const callLoginApi = async (values, setUser, showAlert) => {
   }
 };
 
-export const callSigninApi = async (values, setUser, showAlert) => {
+export const callSigninApi = async ({ values, setUser, showAlert }) => {
   try {
     await axios
       .post(BACKEND_API_BASE_URL + "signup", {
