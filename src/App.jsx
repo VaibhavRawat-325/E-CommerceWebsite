@@ -12,8 +12,8 @@ import ProductDetail from "./components/ProductDetail";
 import SignUp from "./components/SignUp";
 import UserRoute from "./components/UserRoute";
 import AuthRoute from "./components/AuthRoute";
-import AlertProvider from "./components/provider/AlertProvider";
-import UserProvider from "./components/provider/UserProvider";
+import AlertProvider from "./components/providers/AlertProvider";
+import UserProvider from "./components/providers/UserProvider";
 
 function App() {
   return (
