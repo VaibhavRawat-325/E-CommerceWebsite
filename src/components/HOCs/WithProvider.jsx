@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 
-function WithProvider({}) {
+function WithProvider(contextName) {
   const MyHOC = (IncomingComponent) => {
     const OutgoingComponent = (props) => {
       const contextData = useContext(contextName);
