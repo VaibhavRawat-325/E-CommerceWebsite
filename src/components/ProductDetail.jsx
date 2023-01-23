@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import Button from "./Button";
 import Loading from "./Loading";
 import { CartContext } from "./Context";
-import WithProvider from "./HOCs/withProvider";
+import WithProvider from "./helpers/withProvider";
 
 function ProductDetail({ handleAddToCart }) {
   const id = +useParams().id;

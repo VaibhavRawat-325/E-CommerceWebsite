@@ -2,7 +2,7 @@ import React, { useContext, useEffect } from "react";
 import { getProduct } from "./Api";
 import CartList from "./CartList";
 import { CartContext } from "./Context";
-import WithProvider from "./HOCs/withProvider";
+import WithProvider from "./helpers/withProvider";
 import Loading from "./Loading";
 import NoMatching from "./NoMatching";
 

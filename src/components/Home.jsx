@@ -2,7 +2,7 @@ import React from "react";
 import Alerts from "./Alerts";
 import Button from "./Button";
 import { UserContext } from "./Context";
-import WithProvider from "./HOCs/withProvider";
+import WithProvider from "./helpers/withProvider";
 
 function Home({ user, setUser }) {
   const handleLogout = () => {

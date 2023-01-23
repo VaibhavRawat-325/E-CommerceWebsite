@@ -1,6 +1,6 @@
 import Alert from "./Alert";
 import { AlertContext } from "./Context";
-import WithProvider from "./HOCs/withProvider";
+import WithProvider from "./helpers/withProvider";
 
 function Alerts({ alerts, removeAlert }) {
   return (
