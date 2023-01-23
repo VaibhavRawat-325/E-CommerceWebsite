@@ -1,7 +1,7 @@
 import React from "react";
 import { GiCancel } from "react-icons/gi";
 import { CartContext } from "./Context";
-import WithProvider from "./helpers/withProvider";
+import WithProvider from "./helpers/WithProvider";
 
 function CartRow({
   title,

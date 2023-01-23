@@ -1,7 +1,7 @@
 import React from "react";
 import { Navigate } from "react-router-dom";
 import { UserContext } from "./Context";
-import WithProvider from "./helpers/withProvider";
+import WithProvider from "./helpers/WithProvider";
 
 function AuthRoute({ user, children }) {
   if (user) {

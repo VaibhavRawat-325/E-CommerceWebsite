@@ -1,8 +1,8 @@
-import React, { useContext, useEffect } from "react";
+import React, { useEffect } from "react";
 import { getProduct } from "./Api";
 import CartList from "./CartList";
 import { CartContext } from "./Context";
-import WithProvider from "./helpers/withProvider";
+import WithProvider from "./helpers/WithProvider";
 import Loading from "./Loading";
 import NoMatching from "./NoMatching";
 
