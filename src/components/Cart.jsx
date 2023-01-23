@@ -2,12 +2,11 @@ import React, { useContext, useEffect } from "react";
 import { getProduct } from "./Api";
 import CartList from "./CartList";
 import { CartContext } from "./Context";
+import WithProvider from "./HOCs/withProvider";
 import Loading from "./Loading";
 import NoMatching from "./NoMatching";
 
-function Cart() {
-  const { cartItems, totalCount } = useContext(CartContext);
-
+function Cart({ cartItems, totalCount }) {
   const [cart, setCart] = React.useState([]);
   const [loading, setLoading] = React.useState(true);
 
@@ -45,4 +44,4 @@ function Cart() {
   );
 }
 
-export default Cart;
+export default WithProvider(CartContext)(Cart);

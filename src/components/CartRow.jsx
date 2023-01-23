@@ -1,9 +1,17 @@
-import React, { useContext } from "react";
+import React from "react";
 import { GiCancel } from "react-icons/gi";
 import { CartContext } from "./Context";
+import WithProvider from "./HOCs/withProvider";
 
-function CartRow({ title, price, id, thumbnail, localCartData, onRemove }) {
-  const { cartItems, updateCart } = useContext(CartContext);
+function CartRow({
+  title,
+  price,
+  id,
+  thumbnail,
+  localCartData,
+  onRemove,
+  cartItems,
+}) {
   const { localCart, setLocalCart } = localCartData;
 
   const [quantity, setQuantity] = React.useState(cartItems[id]);
@@ -47,4 +55,4 @@ function CartRow({ title, price, id, thumbnail, localCartData, onRemove }) {
     </div>
   );
 }
-export default CartRow;
+export default WithProvider(CartContext)(CartRow);

@@ -1,10 +1,10 @@
-import React, { useContext } from "react";
+import React from "react";
 import { NavLink } from "react-router-dom";
 import { HiOutlineShoppingBag } from "react-icons/hi";
 import { CartContext } from "./Context";
+import WithProvider from "./HOCs/withProvider";
 
-function Header() {
-  const { totalCount } = useContext(CartContext);
+function Header({ totalCount }) {
   return (
     <div className="py-4 bg-white">
       <div className="max-w-6xl mx-auto flex justify-between items-center">
@@ -31,4 +31,4 @@ function Header() {
   );
 }
 
-export default Header;
+export default WithProvider(CartContext)(Header);

@@ -1,10 +1,8 @@
-import { useContext } from "react";
 import Alert from "./Alert";
 import { AlertContext } from "./Context";
+import WithProvider from "./HOCs/withProvider";
 
-function Alerts() {
-  const { alerts, removeAlert } = useContext(AlertContext);
-
+function Alerts({ alerts, removeAlert }) {
   return (
     <div className="flex-col flex-wrap">
       {alerts.map((a) => (
@@ -14,4 +12,4 @@ function Alerts() {
   );
 }
 
-export default Alerts;
+export default WithProvider(AlertContext)(Alerts);

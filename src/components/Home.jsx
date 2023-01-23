@@ -1,7 +1,8 @@
 import React from "react";
 import Alerts from "./Alerts";
 import Button from "./Button";
-import WithUser from "./WithUser";
+import { UserContext } from "./Context";
+import WithProvider from "./HOCs/withProvider";
 
 function Home({ user, setUser }) {
   const handleLogout = () => {
@@ -17,4 +18,4 @@ function Home({ user, setUser }) {
   );
 }
 
-export default WithUser(Home);
+export default WithProvider(UserContext)(Home);

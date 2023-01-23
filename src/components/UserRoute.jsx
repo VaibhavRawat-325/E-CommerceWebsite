@@ -1,6 +1,7 @@
 import React from "react";
 import { Navigate } from "react-router-dom";
-import WithUser from "./WithUser";
+import { UserContext } from "./Context";
+import WithProvider from "./HOCs/withProvider";
 
 function UserRoute({ user, children }) {
   if (!user) {
@@ -9,6 +10,6 @@ function UserRoute({ user, children }) {
   return <div>{children}</div>;
 }
 
-export default WithUser(UserRoute);
+export default WithProvider(UserContext)(UserRoute);
 
 // a route to redirect un-logged-in user to login page and logged-in user to home page.

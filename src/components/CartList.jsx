@@ -1,12 +1,12 @@
-import React, { useContext, useEffect } from "react";
+import React, { useEffect } from "react";
 import Button from "./Button";
 import CartRow from "./CartRow";
 import { CartContext } from "./Context";
+import WithProvider from "./HOCs/withProvider";
 import Input from "./Input";
 import Loading from "./Loading";
 
-function CartList({ listItems, loadingData }) {
-  const { cartItems, updateCart } = useContext(CartContext);
+function CartList({ listItems, loadingData, cartItems, updateCart }) {
   const { loading } = loadingData;
   const [localCart, setLocalCart] = React.useState([]);
 
@@ -71,4 +71,4 @@ function CartList({ listItems, loadingData }) {
   );
 }
 
-export default CartList;
+export default WithProvider(CartContext)(CartList);

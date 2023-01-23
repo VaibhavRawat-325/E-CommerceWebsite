@@ -1,15 +1,14 @@
-import React, { useContext, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { getProduct } from "./Api";
 import { Link } from "react-router-dom";
 import Button from "./Button";
 import Loading from "./Loading";
 import { CartContext } from "./Context";
+import WithProvider from "./HOCs/withProvider";
 
-function ProductDetail() {
+function ProductDetail({ handleAddToCart }) {
   const id = +useParams().id;
-
-  const { handleAddToCart } = useContext(CartContext);
 
   const [product, setProduct] = React.useState();
   const [count, setCount] = React.useState(1);
@@ -92,4 +91,4 @@ function ProductDetail() {
   );
 }
 
-export default ProductDetail;
+export default WithProvider(CartContext)(ProductDetail);
