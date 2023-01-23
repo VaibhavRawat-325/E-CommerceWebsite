@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import Button from "./Button";
 import CartRow from "./CartRow";
 import { CartContext } from "./Context";
-import WithProvider from "./helpers/withProvider";
+import WithProvider from "./helpers/WithProvider";
 import Input from "./Input";
 import Loading from "./Loading";
 
