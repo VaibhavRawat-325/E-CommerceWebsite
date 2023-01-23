@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import FormikInput from "./FormikInput";
 import Button from "./Button";
 import Alerts from "./Alerts";
@@ -6,12 +6,29 @@ import * as Yup from "yup";
 import { Formik, Form } from "formik";
 import { AlertContext, UserContext } from "./Context";
 import { useContext } from "react";
-import { callLoginApi } from "./Api";
+import { callLoginApi, callUserVerificatonApi } from "./Api";
 import { NavLink } from "react-router-dom";
+import Loading from "./Loading";
 
 function LogIn() {
   const { showAlert } = useContext(AlertContext);
   const { setUser } = useContext(UserContext);
+  const [loading, setLoading] = React.useState(true);
+
+  const token = JSON.parse(localStorage.getItem("token"));
+
+  useEffect(() => {
+    if (token) {
+      callUserVerificatonApi(token, setUser, showAlert);
+      setLoading(false);
+    } else {
+      setLoading(false);
+      return showAlert(
+        "Access denied bhai token leke aao 😡, you have to login first 😤",
+        "fail"
+      );
+    }
+  }, []);
 
   const initialValues = {
     email: "",
@@ -26,6 +43,14 @@ function LogIn() {
   const onSubmit = (values) => {
     callLoginApi(values, setUser, showAlert);
   };
+
+  if (loading) {
+    return (
+      <div className="bg-gray-200 h-screen flex justify-center items-center">
+        <Loading />
+      </div>
+    );
+  }
 
   return (
     <div className="flex justify-center">

@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import { HiOutlineShoppingBag } from "react-icons/hi";
+import { CartContext } from "./Context";
 
-function Header({ productCount }) {
+function Header() {
+  const { totalCount } = useContext(CartContext);
   return (
     <div className="py-4 bg-white">
       <div className="max-w-6xl mx-auto flex justify-between items-center">
@@ -20,7 +22,7 @@ function Header({ productCount }) {
           <div className="flex flex-col">
             <HiOutlineShoppingBag className="text-4xl text-orange-500" />
             <span className="text-sm text-orange-500 ml-3.5 -mt-6">
-              {productCount}
+              {totalCount}
             </span>
           </div>
         </div>
