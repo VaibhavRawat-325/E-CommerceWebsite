@@ -1,5 +1,5 @@
 import React from "react";
-import { CartContext } from "../Context";
+import { CartContext } from "../js/Context";
 
 function CartProvider({ children }) {
   const cachedData = JSON.parse(localStorage.getItem("new-cart") || "{}");

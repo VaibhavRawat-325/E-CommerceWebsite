@@ -1,5 +1,5 @@
 import React from "react";
-import { AlertContext } from "../Context";
+import { AlertContext } from "../js/Context";
 import { uniqueId } from "lodash";
 
 function AlertProvider({ children }) {

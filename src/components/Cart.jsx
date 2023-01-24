@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { getProduct } from "./Api";
+import { getProduct } from "./js/Api";
 import CartList from "./CartList";
 import { WithCart } from "./helpers/WithProvider";
 import Loading from "./Loading";

@@ -4,9 +4,9 @@ import Button from "./Button";
 import Alerts from "./Alerts";
 import * as Yup from "yup";
 import { Formik, Form } from "formik";
-import { AlertContext, UserContext } from "./Context";
+import { AlertContext, UserContext } from "./js/Context";
 import { useContext } from "react";
-import { callLoginApi, callUserVerificatonApi } from "./Api";
+import { callLoginApi, callUserVerificatonApi } from "./js/Api";
 import { NavLink } from "react-router-dom";
 import Loading from "./Loading";
 

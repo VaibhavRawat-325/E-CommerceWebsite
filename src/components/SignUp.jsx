@@ -3,9 +3,9 @@ import * as Yup from "yup";
 import { Formik, Form } from "formik";
 import WithFormikInput from "./helpers/WithFormikInput";
 import Button from "./Button";
-import { callSigninApi } from "./Api";
+import { callSigninApi } from "./js/Api";
 import { NavLink } from "react-router-dom";
-import { AlertContext, UserContext } from "./Context";
+import { AlertContext, UserContext } from "./js/Context";
 import Alerts from "./Alerts";
 
 function SignUp() {

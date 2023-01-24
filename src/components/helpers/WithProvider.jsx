@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { AlertContext, CartContext, UserContext } from "../Context";
+import { AlertContext, CartContext, UserContext } from "../js/Context";
 
 function WithProvider(contextName) {
   const MyHOC = (IncomingComponent) => {

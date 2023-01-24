@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import Input from "./Input";
 import NoMatching from "./NoMatching";
 import ProductsList from "./ProductsList";
-import { getProductList } from "./Api";
+import { getProductList } from "./js/Api";
 import Loading from "./Loading";
 
 function Products() {

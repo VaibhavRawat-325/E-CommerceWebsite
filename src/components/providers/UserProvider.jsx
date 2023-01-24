@@ -1,5 +1,5 @@
 import React from "react";
-import { UserContext } from "../Context";
+import { UserContext } from "../js/Context";
 
 function UserProvider({ children }) {
   const [user, setUser] = React.useState();

@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { getProduct } from "./Api";
+import { getProduct } from "./js/Api";
 import { Link } from "react-router-dom";
 import Button from "./Button";
 import Loading from "./Loading";
