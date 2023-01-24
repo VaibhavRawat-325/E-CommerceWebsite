@@ -10,8 +10,8 @@ import MainLayout from "./components/MainLayout";
 import LogIn from "./components/LogIn";
 import ProductDetail from "./components/ProductDetail";
 import SignUp from "./components/SignUp";
-import UserRoute from "./components/Routes/UserRoute";
-import AuthRoute from "./components/Routes/AuthRoute";
+import UserRoute from "./components/routes/UserRoute";
+import AuthRoute from "./components/routes/AuthRoute";
 import AlertProvider from "./components/providers/AlertProvider";
 import UserProvider from "./components/providers/UserProvider";
 
