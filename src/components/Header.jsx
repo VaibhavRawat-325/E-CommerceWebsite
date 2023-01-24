@@ -1,8 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import { HiOutlineShoppingBag } from "react-icons/hi";
-import { CartContext } from "./Context";
-import WithProvider from "./helpers/WithProvider";
+import { WithCart } from "./helpers/WithProvider";
 
 function Header({ totalCount }) {
   return (
@@ -31,4 +30,4 @@ function Header({ totalCount }) {
   );
 }
 
-export default WithProvider(CartContext)(Header);
+export default WithCart(Header);

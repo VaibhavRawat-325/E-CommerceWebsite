@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Button from "./Button";
 import NotFoundImage from "./not-found.jpeg";
 
-const NotFound = () => {
+function NotFound() {
   return (
     <div className="flex items-end justify-center">
       <img className="h-screen mx-auto" src={NotFoundImage} />
@@ -14,6 +14,6 @@ const NotFound = () => {
       </div>
     </div>
   );
-};
+}
 
 export default NotFound;

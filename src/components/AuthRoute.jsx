@@ -1,7 +1,6 @@
 import React from "react";
 import { Navigate } from "react-router-dom";
-import { UserContext } from "./Context";
-import WithProvider from "./helpers/WithProvider";
+import { WithUser } from "./helpers/WithProvider";
 
 function AuthRoute({ user, children }) {
   if (user) {
@@ -10,6 +9,6 @@ function AuthRoute({ user, children }) {
   return <div>{children}</div>;
 }
 
-export default WithProvider(UserContext)(AuthRoute);
+export default WithUser(AuthRoute);
 
 // a route to redirect logged-in user to home page from login page.

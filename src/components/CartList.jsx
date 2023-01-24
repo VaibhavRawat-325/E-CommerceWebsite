@@ -1,8 +1,7 @@
 import React, { useEffect } from "react";
 import Button from "./Button";
 import CartRow from "./CartRow";
-import { CartContext } from "./Context";
-import WithProvider from "./helpers/WithProvider";
+import { WithCart } from "./helpers/WithProvider";
 import Input from "./Input";
 import Loading from "./Loading";
 
@@ -71,4 +70,4 @@ function CartList({ listItems, loadingData, cartItems, updateCart }) {
   );
 }
 
-export default WithProvider(CartContext)(CartList);
+export default WithCart(CartList);

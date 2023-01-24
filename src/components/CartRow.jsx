@@ -1,7 +1,6 @@
 import React from "react";
 import { GiCancel } from "react-icons/gi";
-import { CartContext } from "./Context";
-import WithProvider from "./helpers/WithProvider";
+import { WithCart } from "./helpers/WithProvider";
 
 function CartRow({
   title,
@@ -55,4 +54,4 @@ function CartRow({
     </div>
   );
 }
-export default WithProvider(CartContext)(CartRow);
+export default WithCart(CartRow);

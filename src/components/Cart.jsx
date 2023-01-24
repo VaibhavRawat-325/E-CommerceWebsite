@@ -1,8 +1,7 @@
 import React, { useEffect } from "react";
 import { getProduct } from "./Api";
 import CartList from "./CartList";
-import { CartContext } from "./Context";
-import WithProvider from "./helpers/WithProvider";
+import { WithCart } from "./helpers/WithProvider";
 import Loading from "./Loading";
 import NoMatching from "./NoMatching";
 
@@ -44,4 +43,4 @@ function Cart({ cartItems, totalCount }) {
   );
 }
 
-export default WithProvider(CartContext)(Cart);
+export default WithCart(Cart);

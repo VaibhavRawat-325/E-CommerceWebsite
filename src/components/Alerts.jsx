@@ -1,6 +1,5 @@
 import Alert from "./Alert";
-import { AlertContext } from "./Context";
-import WithProvider from "./helpers/WithProvider";
+import { WithAlert } from "./helpers/WithProvider";
 
 function Alerts({ alerts, removeAlert }) {
   return (
@@ -12,4 +11,4 @@ function Alerts({ alerts, removeAlert }) {
   );
 }
 
-export default WithProvider(AlertContext)(Alerts);
+export default WithAlert(Alerts);

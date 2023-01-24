@@ -4,8 +4,7 @@ import { getProduct } from "./Api";
 import { Link } from "react-router-dom";
 import Button from "./Button";
 import Loading from "./Loading";
-import { CartContext } from "./Context";
-import WithProvider from "./helpers/WithProvider";
+import { WithCart } from "./helpers/WithProvider";
 
 function ProductDetail({ handleAddToCart }) {
   const id = +useParams().id;
@@ -91,4 +90,4 @@ function ProductDetail({ handleAddToCart }) {
   );
 }
 
-export default WithProvider(CartContext)(ProductDetail);
+export default WithCart(ProductDetail);
