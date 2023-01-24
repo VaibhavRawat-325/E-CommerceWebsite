@@ -1,6 +1,6 @@
 import React from "react";
 import { Navigate } from "react-router-dom";
-import { WithUser } from "./helpers/WithProvider";
+import { WithUser } from "../helpers/WithProvider";
 
 function UserRoute({ user, children }) {
   if (!user) {
