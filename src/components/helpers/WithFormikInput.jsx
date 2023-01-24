@@ -1,8 +1,8 @@
 import { useField } from "formik";
 import React from "react";
-import Input from "./Input";
+import Input from "../Input";
 
-function FormikInput({ name, ...rest }) {
+function WithFormikInput({ name, ...rest }) {
   const [field, meta] = useField(name);
   const { value, onBlur, onChange } = field;
   const { error, touched } = meta;
@@ -20,4 +20,4 @@ function FormikInput({ name, ...rest }) {
   );
 }
 
-export default FormikInput;
+export default WithFormikInput;

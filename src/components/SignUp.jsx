@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import * as Yup from "yup";
 import { Formik, Form } from "formik";
-import FormikInput from "./FormikInput";
+import WithFormikInput from "./helpers/WithFormikInput";
 import Button from "./Button";
 import { callSigninApi } from "./Api";
 import { NavLink } from "react-router-dom";
@@ -38,32 +38,32 @@ function SignUp() {
           validationSchema={validationSchema}
         >
           <Form className="flex flex-col gap-5 bg-gray-100 px-10 py-10 border border-gray-300 shadow-md">
-            <FormikInput
+            <WithFormikInput
               id="fullName"
               name="fullName"
               type="text"
               autoComplete="fullName"
               placeholder="full name"
               required
-            ></FormikInput>
+            ></WithFormikInput>
 
-            <FormikInput
+            <WithFormikInput
               id="email"
               name="email"
               type="email"
               autoComplete="email"
               placeholder="email address"
               required
-            ></FormikInput>
+            ></WithFormikInput>
 
-            <FormikInput
+            <WithFormikInput
               id="password"
               name="password"
               type="password"
               autoComplete="email"
               placeholder="password"
               required
-            ></FormikInput>
+            ></WithFormikInput>
 
             <Button type="submit">Sign In</Button>
             <Button type="button" theme="secondary">

@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import FormikInput from "./FormikInput";
+import WithFormikInput from "./helpers/WithFormikInput";
 import Button from "./Button";
 import Alerts from "./Alerts";
 import * as Yup from "yup";
@@ -63,23 +63,23 @@ function LogIn() {
           validationSchema={validationSchema}
         >
           <Form className="flex flex-col gap-5 bg-gray-100 px-10 py-10 border border-gray-300 shadow-md">
-            <FormikInput
+            <WithFormikInput
               id="email"
               name="email"
               type="email"
               autoComplete="email"
               placeholder="email address"
               required
-            ></FormikInput>
+            ></WithFormikInput>
 
-            <FormikInput
+            <WithFormikInput
               id="password"
               name="password"
               type="password"
               autoComplete="email"
               placeholder="password"
               required
-            ></FormikInput>
+            ></WithFormikInput>
 
             <Button type="submit">Login</Button>
             <Button type="button" theme="secondary">
