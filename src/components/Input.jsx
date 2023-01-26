@@ -11,7 +11,7 @@ function Input({ name, type, id, error, touched, ...rest }) {
         name={name}
         type={type || "text"}
         {...rest}
-        className="block p-2 border border-gray-300 w-full rounded-md shadow-sm focus:ring-yellow-500 focus:border-yellow-500 sm:text-sm"
+        className="block p-2 border border-gray-300 w-full rounded-md shadow-sm focus:ring-yellow-500 focus:border-yellow-500 sm:text-sm outline-none"
       />
 
       <div className="h-5">

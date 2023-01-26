@@ -4,6 +4,8 @@ const DUMMY_PRODUCTS_BASE_URL = "https://dummyjson.com/products/";
 
 const BACKEND_API_BASE_URL = "https://myeasykart.codeyogi.io/";
 
+const API_BASE_URL = "https://myeasykart.codeyogi.io/";
+
 const handleError = (e) => {
   console.error("here comes the error", e);
 };
@@ -12,12 +14,24 @@ const cacheData = (key, data) => {
   localStorage.setItem(key, JSON.stringify(data));
 };
 
-export const getProductList = async () => {
+export const getProductsList = async ({
+  sortBy,
+  sortType,
+  query,
+  pageNumber,
+}) => {
   try {
-    const response = await axios.get(DUMMY_PRODUCTS_BASE_URL);
-    const products = response.data.products;
-    cacheData("products", products);
-    return products;
+    const response = await axios.get(API_BASE_URL + "products", {
+      params: {
+        sortBy: sortBy,
+        sortType: sortType,
+        search: query,
+        page: pageNumber,
+      },
+    });
+    const productsData = response.data;
+    cacheData("products", productsData);
+    return productsData;
   } catch (e) {
     handleError(e);
   }
