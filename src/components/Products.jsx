@@ -59,7 +59,7 @@ function Products() {
             <option value="default">default sort</option>
             <option value="title">sort by title</option>
             <option value="low to high">sort by price: low to high</option>
-            <option value="high to low">sort by price: low to high</option>
+            <option value="high to low">sort by price: high to low</option>
           </select>
         </div>
         <div>
